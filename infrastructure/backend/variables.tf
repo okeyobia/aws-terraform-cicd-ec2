@@ -7,7 +7,7 @@ variable "aws_region" {
 variable "state_bucket_name" {
   description = "Name of the S3 bucket for Terraform state"
   type        = string
-  default     = "terraform-state-bucket-okeyobia"
+  default     = "terraform-state-bucket-okeyobia-cicd"
 }
 
 

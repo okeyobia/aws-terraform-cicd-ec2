@@ -1,6 +1,6 @@
 terraform {
     backend "s3" {
-        bucket = "terraform-state-bucket-okeyobia"
+        bucket = "terraform-state-bucket-okeyobia-cicd"
         key = "dev/terraform.tfstate"
         region = "us-east-1"
         encrypt = true
