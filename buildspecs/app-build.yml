@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - echo "Installing dependencies..."
+      - pip install --upgrade pip
+
+  pre_build:
+    commands:
+      - echo "Preparing application bundle..."
+
+  build:
+    commands:
+      - echo "Building application artifact..."
+      - mkdir -p bundle
+      - cp -r app bundle/app
+      - cp appspec.yml bundle/
+      - cp -r scripts bundle/scripts
+
+  post_build:
+    commands:
+      - echo "Application build completed."
+
+artifacts:
+  files:
+    - bundle/**/*
+  discard-paths: no
