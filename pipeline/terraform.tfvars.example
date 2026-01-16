@@ -1,0 +1,14 @@
+project_name = "aws-terraform-cicd-ec2-dev"
+region       = "us-east-1"
+
+# S3 bucket for CodePipeline artifacts (must be created separately)
+artifact_bucket = "aws-terraform-cicd-ec2-dev-pipeline-artifacts"
+
+# GitHub Configuration
+github_owner = "your-github-username"
+github_repo  = "your-repo-name"
+github_branch = "main"
+
+# CodeDeploy Configuration (must match values from infrastructure deployment)
+codedeploy_app_name         = "aws-terraform-cicd-ec2-dev-app"
+codedeploy_deployment_group = "aws-terraform-cicd-ec2-dev-dg"
