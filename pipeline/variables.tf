@@ -7,7 +7,14 @@ variable "region" {
 }
 
 variable "artifact_bucket" {
-  type = string
+  type        = string
+  description = "S3 bucket for CodePipeline artifacts"
+}
+
+variable "terraform_state_bucket" {
+  type        = string
+  description = "S3 bucket where infrastructure Terraform state is stored"
+  default     = "terraform-state-bucket-okeyobia-cicd"
 }
 
 variable "github_repo" {
