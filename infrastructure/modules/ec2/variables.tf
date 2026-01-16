@@ -45,3 +45,14 @@ variable "ec2_security_group_id" {
 variable "ec2_instance_profile" {
   type = string
 }
+
+variable "codedeploy_role_arn" {
+  type = string
+}
+
+variable "enable_codedeploy" {
+  description = "Enable CodeDeploy application and deployment group"
+  type        = bool
+  default     = true
+}
+

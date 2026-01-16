@@ -1,0 +1,17 @@
+project_name = "aws-terraform-cicd-ec2-dev"
+region       = "us-east-1"
+
+# VPC Configuration
+vpc_cidr = "10.0.0.0/16"
+
+# Public Subnets (2 subnets for high availability)
+public_subnet_cidrs = [
+  "10.0.1.0/24",
+  "10.0.2.0/24"
+]
+
+# Availability Zones (must match the number of subnets)
+availability_zones = [
+  "us-east-1a",
+  "us-east-1b"
+]
