@@ -25,7 +25,11 @@ module "iam" {
   source = "../../modules/iam"
 
   project_name = var.project_name
-  codestar_connection_arn = var.codestar_connection_arn
+  pipeline_role_name          = "${var.project_name}-codepipeline-role"
+  codestar_connection_arn     = var.codestar_connection_arn
+  github_connection_arn = var.github_connection_arn
+  codestar_pass_connection_arn = var.codestar_pass_connection_arn
+  codestar_pass_connection_policy_arn = var.codestar_pass_connection_policy_arn
 }
 
 module "ec2" {

@@ -127,6 +127,13 @@ resource "aws_iam_policy" "codepipeline_policy" {
           "iam:PassRole"
         ]
         Resource = "*"
+      },
+      {
+        Effect   = "Allow"
+        Action   = [
+          "codestar-connections:UseConnection"
+        ]
+        Resource = var.github_connection_arn
       }
     ]
   })
@@ -151,15 +158,15 @@ resource "aws_iam_policy" "codestar_pass_connection" {
       {
         Effect   = "Allow"
         Action   = "codestar-connections:PassConnection"
-        Resource = var.codestar_connection_arn
+        Resource = var.github_connection_arn
       }
     ]
   })
 }
 
-resource "aws_iam_user_policy_attachment" "attach_pass_connection" {
-  user       = "okey-devOps-admin"
-  policy_arn = aws_iam_policy.codestar_pass_connection.arn
+resource "aws_iam_role_policy_attachment" "pass_connection" {
+  role       = var.pipeline_role_name
+  policy_arn = var.codestar_pass_connection_arn
 }
 
 

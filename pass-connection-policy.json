@@ -1,0 +1,18 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "codestar-connections:PassConnection",
+      "Resource": "arn:aws:codestar-connections:us-east-1:430367037730:connection/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "codestar-connections:UseConnection",
+        "codestar-connections:GetConnection"
+      ],
+      "Resource": "arn:aws:codestar-connections:us-east-1:430367037730:connection/*"
+    }
+  ]
+}
