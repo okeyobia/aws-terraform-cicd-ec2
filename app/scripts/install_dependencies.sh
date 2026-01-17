@@ -22,7 +22,7 @@ sudo chown -R ec2-user:ec2-user /opt/app
 
 echo "Installing Python dependencies..."
 if [ -f /opt/app/app/requirements.txt ]; then
-  pip3 install -r /opt/app/app/requirements.txt
+  sudo pip3 install -r /opt/app/app/requirements.txt
 fi
 
 echo "Dependency installation completed successfully."
