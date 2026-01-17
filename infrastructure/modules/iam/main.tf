@@ -82,7 +82,29 @@ resource "aws_iam_policy" "codebuild_policy" {
           "autoscaling:*",
           "iam:PassRole",
           "logs:*",
-          "codedeploy:*"
+          "codedeploy:*",
+          "iam:GetRole",
+          "iam:GetPolicy",
+          "iam:GetPolicyVersion",
+          "iam:GetInstanceProfile",
+          "iam:ListAttachedRolePolicies",
+          "iam:ListRolePolicies",
+          "iam:ListInstanceProfilesForRole",
+          "iam:CreateRole",
+          "iam:CreatePolicy",
+          "iam:CreateInstanceProfile",
+          "iam:DeleteRole",
+          "iam:DeletePolicy",
+          "iam:DeleteInstanceProfile",
+          "iam:AttachRolePolicy",
+          "iam:DetachRolePolicy",
+          "iam:PutRolePolicy",
+          "iam:DeleteRolePolicy",
+          "iam:AddRoleToInstanceProfile",
+          "iam:RemoveRoleFromInstanceProfile",
+          "iam:TagRole",
+          "iam:TagPolicy",
+          "iam:TagInstanceProfile"
         ]
         Resource = "*"
       }
