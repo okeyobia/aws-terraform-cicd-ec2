@@ -19,12 +19,15 @@ phases:
     commands:
       - echo "Initializing Terraform (S3 native locking enabled)..."
       - cd infrastructure/envs/$TF_ENV
+      - ls -la
+      - echo "Contents of terraform.tfvars:"
+      - cat terraform.tfvars || echo "terraform.tfvars not found"
       - terraform init -input=false
 
   build:
     commands:
       - echo "Running Terraform Plan..."
-      - terraform plan -input=false -var-file=terraform.tfvars -out=tfplan
+      - terraform plan -input=false -out=tfplan
 
   post_build:
     commands:
