@@ -38,7 +38,7 @@ instance/
 *.tfstate
 *.tfstate.*
 .terraform.lock.hcl
-*.tfvars
+# Ignore local override files but allow terraform.tfvars in envs directories
 *.tfvars.json
 override.tf
 override.tf.json
@@ -46,6 +46,8 @@ override.tf.json
 *_override.tf.json
 .terraformrc
 terraform.rc
+# Allow specific tfvars files
+!infrastructure/envs/**/terraform.tfvars
 
 # IDE
 .vscode/
