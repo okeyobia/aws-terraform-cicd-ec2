@@ -18,7 +18,7 @@ phases:
       - mkdir -p bundle
       - cp -r app bundle/app
       - cp appspec.yml bundle/
-      - cp -r scripts bundle/scripts
+      - cp -r app/scripts bundle/scripts
 
   post_build:
     commands:
