@@ -15,8 +15,8 @@ phases:
   build:
     commands:
       - echo "Building application artifact..."
-      - mkdir -p bundle
-      - cp -r app bundle/app
+      - mkdir -p bundle/app
+      - cp -r app/src/* bundle/app/
       - cp appspec.yml bundle/
       - cp -r app/scripts bundle/scripts
 
