@@ -24,7 +24,7 @@ phases:
   build:
     commands:
       - echo "Running Terraform Plan..."
-      - terraform plan -input=false -out=tfplan
+      - terraform plan -input=false -var-file=terraform.tfvars -out=tfplan
 
   post_build:
     commands:
