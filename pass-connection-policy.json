@@ -3,16 +3,10 @@
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "codestar-connections:PassConnection",
-      "Resource": "arn:aws:codestar-connections:us-east-1:430367037730:connection/*"
-    },
-    {
-      "Effect": "Allow",
       "Action": [
-        "codestar-connections:UseConnection",
-        "codestar-connections:GetConnection"
+        "codestar-connections:*"
       ],
-      "Resource": "arn:aws:codestar-connections:us-east-1:430367037730:connection/*"
+      "Resource": "*"
     }
   ]
 }

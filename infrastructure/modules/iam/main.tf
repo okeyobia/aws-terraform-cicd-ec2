@@ -146,27 +146,30 @@ resource "aws_iam_role_policy_attachment" "codepipeline_attach" {
 
 
 ############################################
-# GitHub Connection Role
+# CodeStar Connection Permissions
 ############################################
 
-resource "aws_iam_policy" "codestar_pass_connection" {
-  name        = "CodestarPassConnection"
-  description = "Allows passing CodeStar connection to CodePipeline"
+resource "aws_iam_policy" "codestar_connection" {
+  name        = "${var.project_name}-codestar-connection"
+  description = "Allows CodePipeline to use CodeStar connection"
   policy      = jsonencode({
     Version = "2012-10-17",
     Statement = [
       {
         Effect   = "Allow"
-        Action   = "codestar-connections:PassConnection"
+        Action   = [
+          "codestar-connections:UseConnection",
+          "codestar-connections:PassConnection"
+        ]
         Resource = var.github_connection_arn
       }
     ]
   })
 }
 
-resource "aws_iam_role_policy_attachment" "pass_connection" {
-  role       = var.pipeline_role_name
-  policy_arn = var.codestar_pass_connection_arn
+resource "aws_iam_role_policy_attachment" "codepipeline_codestar" {
+  role       = aws_iam_role.codepipeline_role.name
+  policy_arn = aws_iam_policy.codestar_connection.arn
 }
 
 
