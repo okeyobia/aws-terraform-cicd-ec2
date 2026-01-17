@@ -6,3 +6,6 @@ data "terraform_remote_state" "infra" {
     region = var.region
   }
 }
+
+
+

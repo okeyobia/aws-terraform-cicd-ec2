@@ -2,7 +2,7 @@ project_name = "aws-terraform-cicd-ec2-dev"
 region       = "us-east-1"
 
 # S3 bucket for CodePipeline artifacts (must be created separately)
-artifact_bucket = "aws-terraform-cicd-ec2-dev-pipeline-artifacts"
+artifact_bucket = "terraform-state-bucket-okeyobia-cicd"
 
 # GitHub Configuration
 github_owner = "your-github-username"

@@ -28,3 +28,8 @@ variable "enable_codedeploy" {
   type        = bool
   default     = false
 }
+
+variable "codestar_connection_arn" {
+  description = "ARN of the CodeStar GitHub connection to attach PassConnection policy"
+  type        = string
+}

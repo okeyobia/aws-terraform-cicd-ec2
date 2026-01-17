@@ -25,6 +25,7 @@ module "iam" {
   source = "../../modules/iam"
 
   project_name = var.project_name
+  codestar_connection_arn = var.codestar_connection_arn
 }
 
 module "ec2" {

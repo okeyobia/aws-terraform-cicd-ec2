@@ -7,25 +7,45 @@ resource "aws_codepipeline" "this" {
     type     = "S3"
   }
 
-  stage {
-    name = "Source"
+#   stage {
+#     name = "Source"
 
-    action {
-      name             = "Source"
-      category         = "Source"
-      owner            = "ThirdParty"
-      provider         = "GitHub"
-      version          = "1"
-      output_artifacts = ["source"]
+#     action {
+#       name             = "Source"
+#       category         = "Source"
+#       owner            = "ThirdParty"
+#       provider         = "GitHub"
+#       version          = "1"
+#       output_artifacts = ["source"]
 
-      configuration = {
-        Owner  = var.github_owner
-        Repo   = var.github_repo
-        Branch = var.github_branch
-        OAuthToken = "{{resolve:secretsmanager:github-token}}"
-      }
+#       configuration = {
+#         Owner  = var.github_owner
+#         Repo   = var.github_repo
+#         Branch = var.github_branch
+#         OAuthToken = "{{resolve:secretsmanager:github-token}}"
+#       }
+#     }
+#   }
+
+stage {
+  name = "Source"
+
+  action {
+    name             = "Source"
+    category         = "Source"
+    owner            = "AWS"
+    provider         = "CodeStarSourceConnection"
+    version          = "1"
+    output_artifacts = ["source"]
+
+    configuration = {
+      ConnectionArn    = var.github_connection_arn
+      FullRepositoryId = "${var.github_owner}/${var.github_repo}"
+      BranchName       = var.github_branch
     }
   }
+}
+
 
   stage {
     name = "Terraform_Plan"

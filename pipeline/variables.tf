@@ -37,3 +37,6 @@ variable "codedeploy_app_name" {
 variable "codedeploy_deployment_group" {
   type = string
 }
+variable "github_connection_arn" {
+  type = string
+}

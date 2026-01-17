@@ -13,3 +13,8 @@ output "codebuild_role_arn" {
 output "codepipeline_role_arn" {
   value = aws_iam_role.codepipeline_role.arn
 }
+
+output "codestar_pass_connection_policy_arn" {
+  value = aws_iam_policy.codestar_pass_connection.arn
+}
+
