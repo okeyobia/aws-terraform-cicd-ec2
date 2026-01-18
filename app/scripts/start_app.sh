@@ -27,16 +27,19 @@ if [ -f "$PID_FILE" ]; then
 fi
 
 echo "Launching Python application..."
+cd "$APP_DIR/app"
 nohup python3 "$APP_FILE" > "$LOG_FILE" 2>&1 &
 
 NEW_PID=$!
 echo $NEW_PID > "$PID_FILE"
 
-sleep 2
+sleep 3
 
 if ps -p "$NEW_PID" > /dev/null 2>&1; then
   echo "Application started successfully with PID $NEW_PID"
 else
   echo "ERROR: Application failed to start"
+  echo "Last 20 lines of log file:"
+  tail -20 "$LOG_FILE" || echo "Could not read log file"
   exit 1
 fi
